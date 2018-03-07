@@ -11,6 +11,8 @@ namespace BeerSnob.Models
 
         public string BeerName { get; set; }
 
+        public string WhereTried { get; set; }
+
         public string Country { get; set; }
 
         public double PercentABV { get; set; }
