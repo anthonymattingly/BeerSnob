@@ -1,8 +1,71 @@
-﻿
+﻿@model BeerSnob.Models.BeerListViewModel
+
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
+<h2>Chug a lug</h2>
+
+@*//Link to Add new food to list*@
+
+@Html.ActionLink("Add a beer", "Create", "Beer", null, new { @class = "btn btn-primary btn-large" })
+
+<p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Beer Name
+                </th>
+                <th>
+                    Where You Tried It
+                </th>
+                <th>
+                    Country of Origin
+                </th>
+                <th>
+                    %ABV
+                </th>
+                <th>
+                    Rating
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+
+
+        @foreach (var item in Model.Beers)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhereTried)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PercentABV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BeerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BeerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BeerId }) 
+            </td>
+        </tr>
+        }
+    </table>
 

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using BeerSnob.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,27 +10,62 @@ namespace BeerSnob.Controllers
 {
     public class BeerController : Controller
     {
-        // GET: Beer
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            using (var foodContext = new BeerContext())
+            {
+                var beerListViewModel = new BeerListViewModel();
+                beerListViewModel.Beers = foodContext.Beers.Select(f => new BeerViewModel
+                {
+                    BeerId = f.BeerId,
+                    BeerName = f.BeerName,
+                    WhereTried = f.WhereTried,
+                    Country = f.Country,
+                    PercentABV = f.PercentABV,
+                    Rating = f.Rating,
+                    Description = f.Description
+                }).ToList();
+                return View(beerListViewModel);
+            }
         }
 
-        // GET: Beer/Details/5
-        public ActionResult Details(int id)
+
+        public ActionResult Details(int? id)
         {
-            return View();
+            using (var beerContext = new BeerContext())
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                var beerDetail = beerContext.Beers.SingleOrDefault(b => b.BeerId == id);
+
+                var beerViewModel = new BeerViewModel {
+                    BeerId = beerDetail.BeerId,
+                    BeerName = beerDetail.BeerName,
+                    WhereTried = beerDetail.WhereTried,
+                    Country = beerDetail.Country,
+                    PercentABV = beerDetail.PercentABV,
+                    Rating = beerDetail.Rating,
+                    Description = beerDetail.Description
+                };
+
+                return View(beerViewModel);
+            }
         }
 
-        // GET: Beer/Create
+        [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            BeerViewModel beerViewModel = new BeerViewModel();
+            return View("Create", beerViewModel);
         }
 
         // POST: Beer/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Beer beer)
         {
             try
             {

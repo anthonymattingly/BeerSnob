@@ -207,6 +207,7 @@
     <Content Include="Views\Beer\Create.cshtml" />
     <Content Include="Views\Beer\Edit.cshtml" />
     <Content Include="Views\Beer\Delete.cshtml" />
+    <Content Include="Views\Beer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
