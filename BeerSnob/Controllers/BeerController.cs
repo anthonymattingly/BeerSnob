@@ -65,7 +65,7 @@ namespace BeerSnob.Controllers
             return View("Create", beerViewModel);
         }
 
-        // POST: Beer/Create
+        
         [HttpPost]
         public ActionResult Create(Beer beer)
         {
@@ -81,47 +81,89 @@ namespace BeerSnob.Controllers
             return View(beer);
         }
 
-        // GET: Beer/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public ActionResult Edit(int? id)
         {
-            return View();
+            using(var beerContext = new BeerContext()) { 
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+                var beerViewModel = beerContext.Beers.SingleOrDefault(b => b.BeerId == id);
+
+                if (beerViewModel == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(beerViewModel);
+            }
         }
 
-        // POST: Beer/Edit/5
+        
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(BeerViewModel beerViewModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                using (var beerContext = new BeerContext())
+                {
 
-                return RedirectToAction("Index");
+                    var beerToUpdate = beerContext.Beers.SingleOrDefault(b => b.BeerId == beerViewModel.BeerId);
+                    if(beerToUpdate != null)
+                    {
+                        beerToUpdate.BeerName = beerViewModel.BeerName;
+                        beerToUpdate.WhereTried = beerViewModel.WhereTried;
+                        beerToUpdate.Style = beerViewModel.Style;
+                        beerToUpdate.Country = beerViewModel.Country;
+                        beerToUpdate.PercentABV = beerViewModel.PercentABV;
+                        beerToUpdate.Rating = beerViewModel.Rating;
+                        beerToUpdate.Description = beerViewModel.Description;
+                        beerContext.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
             }
-            catch
+            return new HttpNotFoundResult();
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            using (var beerContext = new BeerContext())
             {
-                return View();
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                var beerViewModel = beerContext.Beers.SingleOrDefault(b => b.BeerId == id);
+
+                if (beerViewModel == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(beerViewModel);
             }
         }
 
-        // GET: Beer/Delete/5
+      
+        [HttpPost]
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Beer/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            using (var beerContext = new BeerContext())
             {
-                // TODO: Add delete logic here
+                var beerToDelete = beerContext.Beers.SingleOrDefault(b => b.BeerId == id);
+
+                if (beerToDelete != null)
+                {
+                    beerContext.Beers.Remove(beerToDelete);
+                    beerContext.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
             }
         }
     }
