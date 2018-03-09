@@ -16,7 +16,7 @@ namespace BeerSnob.Migrations
         protected override void Seed(BeerSnob.BeerContext context)
         {
             context.Beers.AddOrUpdate(
-                new Beer { BeerId = 1, BeerName = "Test Beer from Seed Method", WhereTried = "Sergio's", Country = "Murica", PercentABV = 8.1,
+                new Beer { BeerId = 1, BeerName = "Test Beer from Seed Method", WhereTried = "Sergio's", Country = "Murica", Style = "IPA",PercentABV = 8.1,
                 Rating = 4.5, Description = "Decent"
                 }
                 );

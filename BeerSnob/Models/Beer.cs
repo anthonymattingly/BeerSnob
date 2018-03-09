@@ -15,6 +15,8 @@ namespace BeerSnob.Models
 
         public string Country { get; set; }
 
+        public string Style { get; set; }
+
         public double PercentABV { get; set; }
 
         public double Rating { get; set; }

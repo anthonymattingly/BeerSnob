@@ -24,6 +24,10 @@ namespace BeerSnob.Models
         [StringLength(50)]
         public string Country { get; set; }
 
+        [DisplayName("Style")]
+        [StringLength(50)]
+        public string Style { get; set; }
+
         [DisplayName("%ABV")]
         [Range(0, 20)]
         public double PercentABV { get; set; }
@@ -32,7 +36,7 @@ namespace BeerSnob.Models
         [Range(0, 10)]
         public double Rating { get; set; }
 
-        [DisplayName("How Was It?")]
+        [DisplayName("Describe it")]
         [StringLength(50)]
         public string Description { get; set; }
     }

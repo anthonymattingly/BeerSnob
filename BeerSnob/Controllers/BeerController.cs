@@ -13,15 +13,16 @@ namespace BeerSnob.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            using (var foodContext = new BeerContext())
+            using (var beerContext = new BeerContext())
             {
                 var beerListViewModel = new BeerListViewModel();
-                beerListViewModel.Beers = foodContext.Beers.Select(f => new BeerViewModel
+                beerListViewModel.Beers = beerContext.Beers.Select(f => new BeerViewModel
                 {
                     BeerId = f.BeerId,
                     BeerName = f.BeerName,
                     WhereTried = f.WhereTried,
                     Country = f.Country,
+                    Style = f.Style,
                     PercentABV = f.PercentABV,
                     Rating = f.Rating,
                     Description = f.Description
@@ -46,6 +47,7 @@ namespace BeerSnob.Controllers
                     BeerId = beerDetail.BeerId,
                     BeerName = beerDetail.BeerName,
                     WhereTried = beerDetail.WhereTried,
+                    Style = beerDetail.Style,
                     Country = beerDetail.Country,
                     PercentABV = beerDetail.PercentABV,
                     Rating = beerDetail.Rating,
@@ -67,16 +69,16 @@ namespace BeerSnob.Controllers
         [HttpPost]
         public ActionResult Create(Beer beer)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                using (var beerContext = new BeerContext())
+                {
+                    beerContext.Beers.Add(beer);
+                    beerContext.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(beer);
         }
 
         // GET: Beer/Edit/5

@@ -1,7 +1,71 @@
-﻿
+﻿@model BeerSnob.Models.BeerViewModel
+
+
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
 
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.HiddenFor(model => model.BeerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WhereTried)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Style)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PercentABV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tr>
+        <td>
+            @Html.HiddenFor(model => model.BeerId)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.BeerName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.WhereTried)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Style)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.PercentABV)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Description)
+        </td>
+    </tr>
+</table>
+
+
+@Html.ActionLink("Back to List", "Index")
