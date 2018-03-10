@@ -2,8 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-@using (Html.BeginForm())
-{
+
     <div class="jumbotron">
         <h1>Beer Snob</h1>
         @*<p class="lead">BeerSnob Description Goes Here. </p>*@
@@ -17,16 +16,16 @@
             <form>
                 <div class="form-row align-items-center">
                     @*<div class="col-auto">
-                            <label class="sr-only" for="inlineFormInput">Name</label>
-                            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="BeerDrinker">
-                        </div>*@
+            <label class="sr-only" for="inlineFormInput">Name</label>
+            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="BeerDrinker">
+        </div>*@
                     <div class="col-auto">
                         @*<label class="sr-only" for="inlineFormInputGroup">Username</label>*@
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Enter your username:</div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="youremail@email.com">
                         </div>
                     </div>
                     <div class="col-auto">
@@ -37,10 +36,11 @@
                             </label>
                         </div>
                     </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-2">Login to get started</button>
-                    </div>
+
+                    @*The following will redirect to the Beer Controller Index*@ 
+                    @Html.ActionLink("Login to get started", "Index", "Beer", null, new { @class = "btn btn-primary btn-large" })
                 </div>
+                
             </form>
 
             @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
@@ -56,4 +56,3 @@
                 <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
             </div>*@
     </div>
-}

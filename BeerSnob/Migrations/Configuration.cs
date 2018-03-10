@@ -23,7 +23,19 @@ namespace BeerSnob.Migrations
                 PercentABV = 8.1,
                 Rating = 4.5,
                 Description = "Decent"
-                }
+                },
+                 new Beer
+                 {
+                     BeerId = 2,
+                     BeerName = "Test Beer #2 from Seed Method",
+                     WhereTried = "At my house",
+                     WhenTried = DateTime.Today,
+                     Country = "Canada",
+                     Style = "Nut Brown Ale",
+                     PercentABV = 6.1,
+                     Rating = 8.5,
+                     Description = "Good"
+                 }
                 );
         }
     }

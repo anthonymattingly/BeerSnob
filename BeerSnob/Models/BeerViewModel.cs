@@ -21,7 +21,7 @@ namespace BeerSnob.Models
         public string WhereTried { get; set; }
 
         [DisplayName("When You Had It")]
-        [StringLength(50)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime WhenTried { get; set; }
 
         [DisplayName("Country of Origin")]

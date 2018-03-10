@@ -94,7 +94,7 @@ namespace BeerSnob.Controllers
             }
 
                 var beerViewModel = beerContext.Beers.SingleOrDefault(b => b.BeerId == id);
-
+   
                 if (beerViewModel == null)
                 {
                     return HttpNotFound();

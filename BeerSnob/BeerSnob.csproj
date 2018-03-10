@@ -168,6 +168,10 @@
     <Compile Include="Migrations\201803100135135_WhenTried.Designer.cs">
       <DependentUpon>201803100135135_WhenTried.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803101959380_SecondSeedData.cs" />
+    <Compile Include="Migrations\201803101959380_SecondSeedData.Designer.cs">
+      <DependentUpon>201803101959380_SecondSeedData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Beer.cs" />
     <Compile Include="Models\BeerListViewModel.cs" />
@@ -175,6 +179,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-datepicker.min.js" />
+    <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803100135135_WhenTried.resx">
       <DependentUpon>201803100135135_WhenTried.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803101959380_SecondSeedData.resx">
+      <DependentUpon>201803101959380_SecondSeedData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
