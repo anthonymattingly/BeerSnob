@@ -14,6 +14,9 @@ namespace BeerSnob.Models
 
         public string WhereTried { get; set; }
 
+        //Attributes below all datepicker formatting when in edit view
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime WhenTried { get; set; }
 
         public string Country { get; set; }

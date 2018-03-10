@@ -21,7 +21,9 @@ namespace BeerSnob.Models
         public string WhereTried { get; set; }
 
         [DisplayName("When You Had It")]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        //Attributes below allow datepicker formatting when in Create View
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime WhenTried { get; set; }
 
         [DisplayName("Country of Origin")]
