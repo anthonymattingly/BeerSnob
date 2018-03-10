@@ -20,6 +20,10 @@ namespace BeerSnob.Models
         [StringLength(50)]
         public string WhereTried { get; set; }
 
+        [DisplayName("When You Had It")]
+        [StringLength(50)]
+        public DateTime WhenTried { get; set; }
+
         [DisplayName("Country of Origin")]
         [StringLength(50)]
         public string Country { get; set; }

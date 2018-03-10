@@ -21,6 +21,7 @@ namespace BeerSnob.Controllers
                     BeerId = f.BeerId,
                     BeerName = f.BeerName,
                     WhereTried = f.WhereTried,
+                    WhenTried = f.WhenTried,
                     Country = f.Country,
                     Style = f.Style,
                     PercentABV = f.PercentABV,
@@ -47,6 +48,7 @@ namespace BeerSnob.Controllers
                     BeerId = beerDetail.BeerId,
                     BeerName = beerDetail.BeerName,
                     WhereTried = beerDetail.WhereTried,
+                    WhenTried = beerDetail.WhenTried,
                     Style = beerDetail.Style,
                     Country = beerDetail.Country,
                     PercentABV = beerDetail.PercentABV,
@@ -115,6 +117,7 @@ namespace BeerSnob.Controllers
                     {
                         beerToUpdate.BeerName = beerViewModel.BeerName;
                         beerToUpdate.WhereTried = beerViewModel.WhereTried;
+                        beerToUpdate.WhenTried = beerViewModel.WhenTried;
                         beerToUpdate.Style = beerViewModel.Style;
                         beerToUpdate.Country = beerViewModel.Country;
                         beerToUpdate.PercentABV = beerViewModel.PercentABV;

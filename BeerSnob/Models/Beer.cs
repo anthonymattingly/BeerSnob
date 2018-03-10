@@ -13,6 +13,8 @@ namespace BeerSnob.Models
 
         public string WhereTried { get; set; }
 
+        public DateTime WhenTried { get; set; }
+
         public string Country { get; set; }
 
         public string Style { get; set; }

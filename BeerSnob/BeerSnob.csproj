@@ -164,6 +164,10 @@
     <Compile Include="Migrations\201803090232161_style.Designer.cs">
       <DependentUpon>201803090232161_style.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803100135135_WhenTried.cs" />
+    <Compile Include="Migrations\201803100135135_WhenTried.Designer.cs">
+      <DependentUpon>201803100135135_WhenTried.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Beer.cs" />
     <Compile Include="Models\BeerListViewModel.cs" />
@@ -236,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803090232161_style.resx">
       <DependentUpon>201803090232161_style.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803100135135_WhenTried.resx">
+      <DependentUpon>201803100135135_WhenTried.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
