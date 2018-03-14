@@ -18,6 +18,8 @@ namespace BeerSnob
 
         public virtual DbSet<Beer> Beers { get; set; }
 
+        public virtual DbSet<BeerStyle> BeerStyles { get; set; }
+
     }
 
 }

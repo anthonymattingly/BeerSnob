@@ -10,6 +10,14 @@ namespace BeerSnob.Models
     {
         public int BeerId { get; set; }
 
+        //Defines Relationship between Beer and BeerStyle Entities
+        public BeerStyle BeerStyles { get; set; }
+
+        public int BeerStyleId { get; set; }
+
+
+
+
         public string BeerName { get; set; }
 
         public string WhereTried { get; set; }
@@ -28,5 +36,6 @@ namespace BeerSnob.Models
         public double Rating { get; set; }
 
         public string Description { get; set; }
+
     }
 }

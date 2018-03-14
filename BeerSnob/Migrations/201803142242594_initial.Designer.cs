@@ -7,13 +7,13 @@ namespace BeerSnob.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class WhenTried : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(WhenTried));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201803100135135_WhenTried"; }
+            get { return "201803142242594_initial"; }
         }
         
         string IMigrationMetadata.Source

@@ -63,6 +63,14 @@ namespace BeerSnob.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            using (var beerContext = new BeerContext())
+            {
+                ViewBag.BeerStyle = beerContext.BeerStyles.Select(c => new SelectListItem
+                {
+                    Value = c.BeerStyleId.ToString(),
+                    Text = c.StyleOfBeer
+                }).ToList();
+            }
             BeerViewModel beerViewModel = new BeerViewModel();
             return View("Create", beerViewModel);
         }
