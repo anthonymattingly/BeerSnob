@@ -16,6 +16,13 @@ namespace BeerSnob.Models
         [StringLength(50)]
         public string BeerName { get; set; }
 
+        public string StyleOfBeer { get; set; }
+
+        //Defines Relationship between Beer and BeerStyle Entities
+        public IEnumerable<BeerStyleViewModel> BeerStyles { get; set; }
+
+        public int BeerStyleId { get; set; }
+
         [DisplayName("Where You Had It")]
         [StringLength(50)]
         public string WhereTried { get; set; }

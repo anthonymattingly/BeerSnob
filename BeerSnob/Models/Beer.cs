@@ -11,11 +11,11 @@ namespace BeerSnob.Models
         public int BeerId { get; set; }
 
         //Defines Relationship between Beer and BeerStyle Entities
-        public BeerStyle BeerStyles { get; set; }
+        public IEnumerable<BeerStyle> BeerStyles { get; set; }
 
         public int BeerStyleId { get; set; }
 
-
+        public BeerStyle Style { get; set; }
 
 
         public string BeerName { get; set; }
@@ -29,7 +29,7 @@ namespace BeerSnob.Models
 
         public string Country { get; set; }
 
-        public string Style { get; set; }
+        //public string Style { get; set; }
 
         public double PercentABV { get; set; }
 

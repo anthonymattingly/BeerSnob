@@ -160,10 +160,19 @@
     <Compile Include="Migrations\201803142242594_initial.Designer.cs">
       <DependentUpon>201803142242594_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803142301398_SecondMigration.cs" />
+    <Compile Include="Migrations\201803142301398_SecondMigration.Designer.cs">
+      <DependentUpon>201803142301398_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803150117025_thirdmigration.cs" />
+    <Compile Include="Migrations\201803150117025_thirdmigration.Designer.cs">
+      <DependentUpon>201803150117025_thirdmigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Beer.cs" />
     <Compile Include="Models\BeerListViewModel.cs" />
     <Compile Include="Models\BeerStyle.cs" />
+    <Compile Include="Models\BeerStyleViewModel.cs" />
     <Compile Include="Models\BeerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -230,6 +239,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803142242594_initial.resx">
       <DependentUpon>201803142242594_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803142301398_SecondMigration.resx">
+      <DependentUpon>201803142301398_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803150117025_thirdmigration.resx">
+      <DependentUpon>201803150117025_thirdmigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

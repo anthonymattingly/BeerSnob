@@ -23,7 +23,7 @@ namespace BeerSnob.Controllers
                     WhereTried = f.WhereTried,
                     WhenTried = f.WhenTried,
                     Country = f.Country,
-                    Style = f.Style,
+                    StyleOfBeer = f.Style.StyleOfBeer,
                     PercentABV = f.PercentABV,
                     Rating = f.Rating,
                     Description = f.Description
@@ -49,7 +49,7 @@ namespace BeerSnob.Controllers
                     BeerName = beerDetail.BeerName,
                     WhereTried = beerDetail.WhereTried,
                     WhenTried = beerDetail.WhenTried,
-                    Style = beerDetail.Style,
+                    Style = beerDetail.Style.StyleOfBeer,
                     Country = beerDetail.Country,
                     PercentABV = beerDetail.PercentABV,
                     Rating = beerDetail.Rating,
@@ -63,15 +63,15 @@ namespace BeerSnob.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            BeerViewModel beerViewModel = new BeerViewModel();
+
             using (var beerContext = new BeerContext())
             {
-                ViewBag.BeerStyle = beerContext.BeerStyles.Select(c => new SelectListItem
-                {
-                    Value = c.BeerStyleId.ToString(),
-                    Text = c.StyleOfBeer
+                beerViewModel.BeerStyles = beerContext.BeerStyles.Select(b => new BeerStyleViewModel{ BeerStyleId = b.BeerStyleId,
+                    StyleOfBeer = b.StyleOfBeer
                 }).ToList();
             }
-            BeerViewModel beerViewModel = new BeerViewModel();
+            
             return View("Create", beerViewModel);
         }
 
@@ -83,6 +83,7 @@ namespace BeerSnob.Controllers
             {
                 using (var beerContext = new BeerContext())
                 {
+                    
                     beerContext.Beers.Add(beer);
                     beerContext.SaveChanges();
                     return RedirectToAction("Index");
@@ -126,7 +127,7 @@ namespace BeerSnob.Controllers
                         beerToUpdate.BeerName = beerViewModel.BeerName;
                         beerToUpdate.WhereTried = beerViewModel.WhereTried;
                         beerToUpdate.WhenTried = beerViewModel.WhenTried;
-                        beerToUpdate.Style = beerViewModel.Style;
+                        beerToUpdate.BeerStyleId = beerViewModel.BeerStyleId;
                         beerToUpdate.Country = beerViewModel.Country;
                         beerToUpdate.PercentABV = beerViewModel.PercentABV;
                         beerToUpdate.Rating = beerViewModel.Rating;
