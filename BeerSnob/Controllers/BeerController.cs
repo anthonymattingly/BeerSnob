@@ -16,6 +16,8 @@ namespace BeerSnob.Controllers
             using (var beerContext = new BeerContext())
             {
                 var beerListViewModel = new BeerListViewModel();
+
+
                 beerListViewModel.Beers = beerContext.Beers.Select(f => new BeerViewModel
                 {
                     BeerId = f.BeerId,
@@ -23,7 +25,7 @@ namespace BeerSnob.Controllers
                     WhereTried = f.WhereTried,
                     WhenTried = f.WhenTried,
                     Country = f.Country,
-                    StyleOfBeer = f.Style.StyleOfBeer,
+                    Style = f.Style,
                     PercentABV = f.PercentABV,
                     Rating = f.Rating,
                     Description = f.Description
@@ -31,7 +33,6 @@ namespace BeerSnob.Controllers
                 return View(beerListViewModel);
             }
         }
-
 
         public ActionResult Details(int? id)
         {
@@ -43,13 +44,14 @@ namespace BeerSnob.Controllers
                 }
 
                 var beerDetail = beerContext.Beers.SingleOrDefault(b => b.BeerId == id);
-
-                var beerViewModel = new BeerViewModel {
+   
+                var beerViewModel = new BeerViewModel
+                {
                     BeerId = beerDetail.BeerId,
                     BeerName = beerDetail.BeerName,
                     WhereTried = beerDetail.WhereTried,
                     WhenTried = beerDetail.WhenTried,
-                    Style = beerDetail.Style.StyleOfBeer,
+                    Style = beerDetail.Style,
                     Country = beerDetail.Country,
                     PercentABV = beerDetail.PercentABV,
                     Rating = beerDetail.Rating,
@@ -60,6 +62,35 @@ namespace BeerSnob.Controllers
             }
         }
 
+
+
+        //public ActionResult Details(int? id)
+        //{
+        //    using (var beerContext = new BeerContext())
+        //    {
+        //        if (id == null)
+        //        {
+        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //        }
+
+        //        var beerDetail = beerContext.Beers.SingleOrDefault(b => b.BeerId == id);
+
+        //        var beerViewModel = new BeerViewModel {
+        //            BeerId = beerDetail.BeerId,
+        //            BeerName = beerDetail.BeerName,
+        //            WhereTried = beerDetail.WhereTried,
+        //            WhenTried = beerDetail.WhenTried,
+        //            Style = beerDetail.Style.StyleOfBeer,
+        //            Country = beerDetail.Country,
+        //            PercentABV = beerDetail.PercentABV,
+        //            Rating = beerDetail.Rating,
+        //            Description = beerDetail.Description
+        //        };
+
+        //        return View(beerViewModel);
+        //    }
+        //}
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -67,15 +98,17 @@ namespace BeerSnob.Controllers
 
             using (var beerContext = new BeerContext())
             {
-                beerViewModel.BeerStyles = beerContext.BeerStyles.Select(b => new BeerStyleViewModel{ BeerStyleId = b.BeerStyleId,
+                beerViewModel.BeerStyles = beerContext.BeerStyles.Select(b => new BeerStyleViewModel
+                {
+                    BeerStyleId = b.BeerStyleId,
                     StyleOfBeer = b.StyleOfBeer
                 }).ToList();
             }
-            
+
             return View("Create", beerViewModel);
         }
 
-        
+
         [HttpPost]
         public ActionResult Create(Beer beer)
         {

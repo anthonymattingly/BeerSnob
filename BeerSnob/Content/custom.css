@@ -1,0 +1,28 @@
+﻿/*body {
+    background-image: url("../Content/beerBackground.jpg");
+    background-size: cover;
+    
+}
+
+.row
+{
+   color: aquamarine;
+}*/
+
+h1, h2, h3 {
+    font-family: 'Lato', sans-serif;
+    color: red;
+}
+
+h2, h3 {
+    color: white;
+}
+
+#description {
+    color: white;
+}
+
+#id {
+    margin-bottom: 35px;
+}
+

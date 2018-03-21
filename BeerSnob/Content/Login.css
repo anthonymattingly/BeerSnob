@@ -1,0 +1,11 @@
+﻿
+body
+{
+    /* The image used */
+    background-image: url("../Content/beerBackground.jpg");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

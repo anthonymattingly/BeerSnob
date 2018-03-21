@@ -9,7 +9,7 @@ namespace BeerSnob.Models
     {
         public BeerStyle()
         {
-            Beers = new HashSet<Beer>();
+            Beers = new List<Beer>();
         }
 
         public int BeerStyleId { get; set; }

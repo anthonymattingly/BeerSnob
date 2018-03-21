@@ -2,57 +2,45 @@
     ViewBag.Title = "Home Page";
 }
 
+<link rel="stylesheet" href="~/Content/Login.css">
 
-    <div class="jumbotron">
-        <h1>Beer Snob</h1>
-        @*<p class="lead">BeerSnob Description Goes Here. </p>*@
-        @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Login to get started</a></p>*@
-    </div>
+<div class="text-center">
+    <h1>Beer Snob</h1>
+</div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>BeerSnob Description Goes Here.</h2>
 
-            <form>
-                <div class="form-row align-items-center">
-                    @*<div class="col-auto">
-            <label class="sr-only" for="inlineFormInput">Name</label>
-            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="BeerDrinker">
-        </div>*@
-                    <div class="col-auto">
-                        @*<label class="sr-only" for="inlineFormInputGroup">Username</label>*@
-                        <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">Enter your username:</div>
+<div class="row">
+    <div class="col-auto text-center">
+        <h4 id="description">
+            BeerSnob lets you keep track of all of your favorite beers as you try them.  No more trying to remember what the name of that one beer is,
+            or where you tried it, or exactly what you thought it tasted like.  Now it's easy to keep track of.
+        </h4>
+
+        <form>
+            <div class="form-row align-items-center">
+                <div class="col-auto align-items-center">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                Enter your username:
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="youremail@email.com">
                         </div>
+                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="youremail@email.com">
                     </div>
-                    <div class="col-auto">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                            <label class="form-check-label" for="autoSizingCheck">
-                                Remember me
-                            </label>
-                        </div>
-                    </div>
-
-                    @*The following will redirect to the Beer Controller Index*@ 
-                    @Html.ActionLink("Login to get started", "Index", "Beer", null, new { @class = "btn btn-primary btn-large" })
                 </div>
-                
-            </form>
-
-            @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
-        </div>
-        @*<div class="col-md-4">
-                <h2>Get more libraries</h2>
-                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+                <div class="col-auto">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                        <label class="form-check-label" for="autoSizingCheck">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+                @Html.ActionLink("Login to get started", "Index", "Beer", null, new { @class = "btn btn-primary btn-large" })
             </div>
-            <div class="col-md-4">
-                <h2>Web Hosting</h2>
-                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-            </div>*@
+
+        </form>
     </div>
+</div>
+
+

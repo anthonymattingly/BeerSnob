@@ -52,13 +52,14 @@ audio:not([controls]) {
 }
 
 html {
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+    font-family: 'Oswald', sans-serif !important;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 body {
-  margin: 0;
+    font-family: 'Oswald', sans-serif !important;
+    margin: 0;
 }
 
 a:focus {

@@ -7,6 +7,8 @@ namespace BeerSnob.Models
 {
     public class BeerListViewModel
     {
-        public List<BeerViewModel> Beers { get; set; }
+
+        public ICollection<BeerViewModel> Beers { get; set; }
+
     }
 }

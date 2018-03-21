@@ -16,7 +16,7 @@ namespace BeerSnob.Models
         [StringLength(50)]
         public string BeerName { get; set; }
 
-        public string StyleOfBeer { get; set; }
+        //public string StyleOfBeer { get; set; }
 
         //Defines Relationship between Beer and BeerStyle Entities
         public IEnumerable<BeerStyleViewModel> BeerStyles { get; set; }
@@ -39,7 +39,7 @@ namespace BeerSnob.Models
 
         [DisplayName("Style")]
         [StringLength(50)]
-        public string Style { get; set; }
+        public BeerStyle Style { get; set; }
 
         [DisplayName("%ABV")]
         [Range(0, 20)]
