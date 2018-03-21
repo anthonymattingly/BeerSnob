@@ -5,8 +5,8 @@
     ViewBag.Title = "Create";
 }
 
-    <h1>Get your drink on!</h1>
-    <h3>Add a Beer</h3>
+    @*<h1>Get your drink on!</h1>
+    <h3>Add a Beer</h3>*@
 
 
 @using (Html.BeginForm())
@@ -53,7 +53,7 @@
 
         <div class="form-group">
             <label for="BeerStyle_BeerStyleId">Beer Style</label>
-            @Html.LabelFor(m => m.Style, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(m => m.Style, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.DropDownListFor(s => s.BeerStyleId, Model.BeerStyles.Select(s => new SelectListItem { Text = s.StyleOfBeer, Value = s.BeerStyleId.ToString() }), new { @class = "form-control" })
             </div>
