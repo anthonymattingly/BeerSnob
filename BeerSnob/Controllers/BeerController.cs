@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace BeerSnob.Controllers
 {
@@ -25,7 +26,7 @@ namespace BeerSnob.Controllers
                     WhereTried = f.WhereTried,
                     WhenTried = f.WhenTried,
                     Country = f.Country,
-                    Style = f.Style,
+                    Style = f.BeerStyle,
                     PercentABV = f.PercentABV,
                     Rating = f.Rating,
                     Description = f.Description
@@ -51,7 +52,7 @@ namespace BeerSnob.Controllers
                     BeerName = beerDetail.BeerName,
                     WhereTried = beerDetail.WhereTried,
                     WhenTried = beerDetail.WhenTried,
-                    Style = beerDetail.Style,
+                    Style = beerDetail.BeerStyle,
                     Country = beerDetail.Country,
                     PercentABV = beerDetail.PercentABV,
                     Rating = beerDetail.Rating,
@@ -135,7 +136,7 @@ namespace BeerSnob.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-                var beerViewModel = beerContext.Beers.SingleOrDefault(b => b.BeerId == id);
+                var beerViewModel = beerContext.Beers.Include(b => b.BeerStyle).SingleOrDefault(b => b.BeerId == id);
    
                 if (beerViewModel == null)
                 {
@@ -154,9 +155,9 @@ namespace BeerSnob.Controllers
                 using (var beerContext = new BeerContext())
                 {
 
-                    var beerToUpdate = beerContext.Beers.SingleOrDefault(b => b.BeerId == beerViewModel.BeerId);
-                    if(beerToUpdate != null)
-                    {
+                    var beerToUpdate = beerContext.Beers.Include(b => b.BeerStyle).SingleOrDefault(b => b.BeerId == beerViewModel.BeerId);
+                    //if(beerToUpdate != null)
+                    //{
                         beerToUpdate.BeerName = beerViewModel.BeerName;
                         beerToUpdate.WhereTried = beerViewModel.WhereTried;
                         beerToUpdate.WhenTried = beerViewModel.WhenTried;
@@ -167,7 +168,8 @@ namespace BeerSnob.Controllers
                         beerToUpdate.Description = beerViewModel.Description;
                         beerContext.SaveChanges();
                         return RedirectToAction("Index");
-                    }
+                    //}
+                   
                 }
             }
             return new HttpNotFoundResult();
