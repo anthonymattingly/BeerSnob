@@ -9,15 +9,13 @@ namespace BeerSnob.Models
 {
     public class BeerViewModel
     {
+
         [DisplayName("Item No.")]
         public int BeerId { get; set; }
 
         [DisplayName("Beer Name")]
         [StringLength(50)]
         public string BeerName { get; set; }
-
-        //Defines Relationship between Beer and BeerStyle Entities
-        public IEnumerable<BeerStyleViewModel> BeerStyles { get; set; }
 
         public int BeerStyleId { get; set; }
 
@@ -47,8 +45,8 @@ namespace BeerSnob.Models
         [Range(0, 10)]
         public double Rating { get; set; }
 
-        [DisplayName("Describe it")]
-        [StringLength(50)]
+        [DisplayName("Give a short description:")]
+        [StringLength(25)]
         public string Description { get; set; }
     }
 }

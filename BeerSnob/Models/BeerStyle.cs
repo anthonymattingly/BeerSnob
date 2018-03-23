@@ -7,16 +7,10 @@ namespace BeerSnob.Models
 {
     public class BeerStyle
     {
-        public BeerStyle()
-        {
-            Beers = new List<Beer>();
-        }
 
         public int BeerStyleId { get; set; }
 
         public string StyleOfBeer { get; set; }
-
-        public virtual ICollection<Beer> Beers { get; set; }
 
     }
 }

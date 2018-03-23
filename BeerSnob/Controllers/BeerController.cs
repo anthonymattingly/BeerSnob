@@ -64,23 +64,6 @@ namespace BeerSnob.Controllers
         }
 
 
-        //[HttpGet]
-        //public ActionResult Create()
-        //{
-        //    BeerViewModel beerViewModel = new BeerViewModel();
-
-        //    using (var beerContext = new BeerContext())
-        //    {
-        //        beerViewModel.BeerStyles = beerContext.BeerStyles.Select(b => new BeerStyleViewModel
-        //        {
-        //            BeerStyleId = b.BeerStyleId,
-        //            StyleOfBeer = b.StyleOfBeer
-        //        }).ToList();
-        //    }
-
-        //    return View("Create", beerViewModel);
-        //}
-
         [HttpGet]
         public ActionResult Create()
         {
@@ -122,15 +105,16 @@ namespace BeerSnob.Controllers
         [HttpGet]
         public ActionResult Edit(int? id)
         {
-            using(var beerContext = new BeerContext()) { 
-
-            if (id == null)
+            using (var beerContext = new BeerContext())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
 
                 var beerViewModel = beerContext.Beers.SingleOrDefault(b => b.BeerId == id);
-   
+
                 if (beerViewModel == null)
                 {
                     return HttpNotFound();
@@ -141,27 +125,23 @@ namespace BeerSnob.Controllers
                     Text = b.StyleOfBeer
                 }).ToList();
                 return View(beerViewModel);
+
+              
             }
         }
 
-        
+
         [HttpPost]
         public ActionResult Edit(BeerViewModel beerViewModel)
         {
             if (ModelState.IsValid)
             {
                
-
                 using (var beerContext = new BeerContext())
                 {
                     var beerToUpdate = beerContext.Beers.SingleOrDefault(b => b.BeerId == beerViewModel.BeerId);
                     if (beerToUpdate != null)
                     {
-                        //ViewBag.BeerStyles = beerContext.BeerStyles.Select(b => new SelectListItem
-                        //{
-                        //    Value = b.BeerStyleId.ToString(),
-                        //    Text = b.StyleOfBeer
-                        //});
                         beerToUpdate.BeerName = beerViewModel.BeerName;
                         beerToUpdate.WhereTried = beerViewModel.WhereTried;
                         beerToUpdate.WhenTried = beerViewModel.WhenTried;

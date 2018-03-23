@@ -10,19 +10,11 @@ namespace BeerSnob.Models
     public class BeerStyleViewModel
     {
 
-        public BeerStyleViewModel()
-        {
-            Beers = new List<BeerViewModel>();
-        }
-
         public int BeerStyleId { get; set; }
 
         [DisplayName("Style")]
         [StringLength(50)]
         public string StyleOfBeer { get; set; }
-
-        public virtual ICollection<BeerViewModel> Beers { get; set; }
-
 
     }
 }

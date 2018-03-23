@@ -8,12 +8,9 @@ namespace BeerSnob.Models
 {
     public class Beer
     {
+        
+
         public int BeerId { get; set; }
-
-        //Defines Relationship between Beer and BeerStyle Entities
-        public virtual IEnumerable<BeerStyle> BeerStyles { get; set; }
-
-        public virtual IEnumerable<BeerStyleViewModel> StyleOfBeers { get; set; }
 
         public int BeerStyleId { get; set; }
 
