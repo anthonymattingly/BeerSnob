@@ -156,8 +156,8 @@ namespace BeerSnob.Controllers
                 {
 
                     var beerToUpdate = beerContext.Beers.Include(b => b.BeerStyle).SingleOrDefault(b => b.BeerId == beerViewModel.BeerId);
-                    //if(beerToUpdate != null)
-                    //{
+                    if (beerToUpdate != null)
+                    {
                         beerToUpdate.BeerName = beerViewModel.BeerName;
                         beerToUpdate.WhereTried = beerViewModel.WhereTried;
                         beerToUpdate.WhenTried = beerViewModel.WhenTried;
@@ -168,7 +168,7 @@ namespace BeerSnob.Controllers
                         beerToUpdate.Description = beerViewModel.Description;
                         beerContext.SaveChanges();
                         return RedirectToAction("Index");
-                    //}
+                    }
                    
                 }
             }

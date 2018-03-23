@@ -13,9 +13,10 @@ namespace BeerSnob.Models
         //Defines Relationship between Beer and BeerStyle Entities
         public virtual IEnumerable<BeerStyle> BeerStyles { get; set; }
 
+        public virtual IEnumerable<BeerStyleViewModel> StyleOfBeers { get; set; }
+
         public int BeerStyleId { get; set; }
 
-        
         public virtual BeerStyle BeerStyle { get; set; }
 
         public string BeerName { get; set; }
@@ -28,8 +29,6 @@ namespace BeerSnob.Models
         public DateTime WhenTried { get; set; }
 
         public string Country { get; set; }
-
-        //public string Style { get; set; }
 
         public double PercentABV { get; set; }
 
