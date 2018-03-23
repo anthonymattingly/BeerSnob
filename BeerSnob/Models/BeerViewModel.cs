@@ -37,7 +37,7 @@ namespace BeerSnob.Models
 
         [DisplayName("Style")]
         [StringLength(50)]
-        public virtual BeerStyle Style { get; set; }
+        public virtual BeerStyle StyleOfBeer { get; set; }
 
         [DisplayName("%ABV")]
         [Range(0, 20)]

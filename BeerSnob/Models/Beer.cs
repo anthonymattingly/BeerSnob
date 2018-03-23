@@ -17,7 +17,7 @@ namespace BeerSnob.Models
 
         public int BeerStyleId { get; set; }
 
-        public virtual BeerStyle BeerStyle { get; set; }
+        public virtual BeerStyle StyleOfBeer { get; set; }
 
         public string BeerName { get; set; }
 
