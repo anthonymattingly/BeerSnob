@@ -52,7 +52,8 @@
         </div>
 
         <div class="form-group">
-            <label for="BeerStyle_BeerStyleId">Beer Style</label>
+            @*<label for="BeerStyle_BeerStyleId">Beer Style</label>*@
+            @Html.LabelFor(model => model.BeerStyleId,"Style", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(s => s.BeerStyleId, ViewBag.BeerStyles as IEnumerable<SelectListItem>, "Select a Style", new { @class = "form-control" })
             </div>
@@ -87,12 +88,12 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn btn-primary" />
         </div>
     </div>
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Cancel(Back to List)", "Index")
     </div>
 
     @section Scripts {
