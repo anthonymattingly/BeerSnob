@@ -1,22 +1,27 @@
-﻿
-h1, h2, h3 {
-    font-family: 'Lato', sans-serif;
-    color: red;
-}
-
-h2, h3 {
-    color: red;
-}
-
-h4{
-    color: red;
-}
+﻿/*Custom css stylings*/
 
 #description {
-    color: red;
+    color: green;
+    font-size: 20px;
 }
+
+h1, h2, h3 {
+    color: green;
+}
+
 
 #id {
     margin-bottom: 35px;
 }
+
+img {
+    opacity: 0.5;
+    position: center;
+}
+
+
+
+
+
+
 

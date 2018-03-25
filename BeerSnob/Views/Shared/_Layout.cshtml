@@ -4,12 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@ViewBag.Title - BeerSnob</title>
-    @*@Styles.Render("~/Content/css")*@
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - Beer Snob</title>
+
+
     @Styles.Render("~/Content/css")
-    <link rel="stylesheet" href="~/Content/custom.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" type="text/css" href="~/Content/custom.css">
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -38,9 +40,9 @@
         </footer>
     </div>
 
-    @*@Scripts.Render("~/bundles/jquery")*@
-    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+   
 
     @RenderSection("scripts", required: false)
 

@@ -1,49 +1,35 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿    <head>
+        @{
+            ViewBag.Title = "Home Page";
+        }
 
-<link rel="stylesheet" href="~/Content/Login.css">
+        <link rel="stylesheet" type="text/css" href="~/Content/custom.css">
+
+    </head>
+  
+        <img class="img-responsive img-circle" style="margin: 0 auto;" src="../Content/beerBackground.jpg">
+    
+    <div class="text-center">
+        <h1>Beer Snob</h1>
+    </div>
 
 
-<div class="text-center">
-    <h1>Beer Snob</h1>
-</div>
-
-
-<div class="row">
-    <div class="col-auto text-center">
-        <h4 id="description">
-            BeerSnob lets you keep track of all of your favorite beers as you try them.  No more trying to remember what the name of that one beer is,
-            or where you tried it, or exactly what you thought it tasted like.  Now it's easy to keep track of.
-        </h4>
-     
-        <form>
-
-            <div class="form-row align-items-center">
-        <div class="col-auto align-items-center">
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        Enter your username:
-                    </div>
-                </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="youremail@email.com">
+    <div class="row">
+        <div class="col-auto text-center">
+            <div id="description">
+                Beer Snob lets you keep track of all of your favorite beers as you try them.  No more trying to remember what the name of that one beer is,
+                or where you tried it, or exactly what you thought it tasted like.  Now it's easy to keep track of.
             </div>
         </div>
-          
-            <div class="col-auto">
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                    <label class="form-check-label" for="autoSizingCheck">
-                        Remember me
-                    </label>
-                </div>
-            </div>
-            @Html.ActionLink("Login to get started", "Index", "Beer", null, new { @class = "btn btn-primary btn-large" })
-</div>
-
-        </form>
     </div>
-</div>
+    <form>
+        <div class="col-auto text-center">
+            @Html.ActionLink("Let's get started", "Index", "Beer", null, new { @class = "btn btn-primary btn-large" })
+
+        </div>
+    </form>
+
+
+
 
 
